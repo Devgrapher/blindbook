@@ -1,0 +1,63 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 1em;
+  padding: 0 0 0.5em;
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  padding: 0;
+}
+
+.title-item {
+  height: 30px;
+  vertical-align: middle;
+}
+
+.vcenter {
+  vertical-align: middle;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+/* Icon */
+.icon{
+  float:left;
+  width:14px;
+  height:14px;
+  position:relative;
+  display:block;
+}
+.icon:before,
+.icon:after{
+  position:absolute;
+  content:"";
+  display:block;
+}
+
+/* List */
+.icon-wrench:before,
+.icon-wrench:after{
+  height:8px;
+  width:14px;
+  border-top:3px solid;
+  border-bottom:3px solid;
+}
+.icon-wrench:after{
+  border-top:none;
+  border-bottom:3px solid;
+  top:5px;
+}

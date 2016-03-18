@@ -1,0 +1,18 @@
+<div ng-include="'views/header.html'"></div>
+<div class="book-view container">
+  <div class="row col-xs-9"><b>이름:</b></div>
+  <div class="row">
+    <div class="col-xs-9">{{book.name}}</div>
+  </div>
+  <div class="row col-xs-9"><b>태그:</b></div>
+  <div class="row">
+    <div class="col-xs-9">
+      <span ng-repeat="tag in book.tags">#{{tag}}&nbsp</span>
+    </div>
+  </div>
+  <div class="row col-xs-9"><b>반납일:</b></div>
+  <div class="row">
+    <div class="col-xs-9">{{book.return_date | date:'yyyy.MM.dd'}}</div>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div ng-include="'views/home/header.html'"></div>
+<div class="home-view container">
+  <div class="row col-xs-12">
+    <button type="button" class="btn btn-primary btn-sm">Available</button>
+    <button type="button" class="btn btn-primary btn-sm">New books</button>
+  </div>
+  <div ng-repeat="book in books" class="row col-xs-12 col-sm-6 text-center">
+    <a href="#/books/{{book._id}}" class="row">
+      <img ng-src="{{bookUrl}}" class="phone col-xs-6">
+      <div class="text-left col-xs-6">
+        <span ng-repeat="tag in book.tags">#{{tag}}<br></span>
+      </div>
+      <h3 class="text-left col-xs-12">{{book.name}}</h3>
+    </a>
+  </div>
+
+</div>

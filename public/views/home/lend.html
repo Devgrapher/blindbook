@@ -1,0 +1,49 @@
+<div ng-include="'views/home/header.html'"></div>
+<div class="book-view container">
+  <h4 class="row col-xs-12">빌려주기</h4>
+  <form class="form">
+    <div class="form-group">
+      <label for="lend-name" class="control-label col-xs-12 col-sm-2">책이름</label>
+      <div class="col-xs-12 col-sm-10">
+        <input class="form-control" id="lend-name" type="text" ng-model="name"
+          placeholder="책 제목을 대신할 별칭을 적어주세요">
+      </div>
+      <p class="control-label help-block col-xs-12"><br></p>
+    </div>
+    <div class="form-group">
+      <label for="lend-tags" class="control-label col-xs-12 col-sm-2">태그</label>
+      <div class="col-xs-12 col-sm-10">
+        <table class="table-striped col-xs-12 nopadding">
+          <tr ng-repeat="tag in tags">
+            <td>#{{tag}}</td>
+          </tr>
+        </table>
+        <div class="col-xs-10 nopadding">
+          <input class="form-control" type="text" ng-model="newTag"
+            placeholder="태그를 한번에 하나씩 입력해주세요">
+        </div>
+        <div class="col-xs-2 nopadding">
+          <button type="text" class="btn btn-default col-xs-12" ng-click="add_tag()">
+            추가
+          </button>
+        </div>
+      </div>
+      <p class="control-label help-block col-xs-12"><br></p>
+    </div>
+    <div class="form-group">
+      <label for="lend-owner" class="control-label col-xs-12 col-sm-2">기부자</label>
+      <div class="col-xs-12 col-sm-10">
+        <input class="form-control" id="lend-owner" type="text" ng-model="owner">
+        <p class="control-label help-block"><br></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+        <button type="submit" class="btn btn-primary btn-block"
+            ng-click="save()">
+          등록
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
