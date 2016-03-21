@@ -28,6 +28,7 @@ router.route('/books/:id')
 
 .get(function(req, res, next) {
   Book.findById(req.params.id, function (err, post) {
+    console.log(post)
     if (err) return next(err);
     res.json(post);
   });

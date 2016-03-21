@@ -12,4 +12,5 @@ angular.module('myApp.home', ['ngRoute'])
 .controller('homeCtrl', ['$scope','Book', function($scope, Book) {
   $scope.books = Book.query();
   $scope.bookUrl = "image/book_default2.jpg";
+  $scope.filter = "available"
 }]);

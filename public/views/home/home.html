@@ -1,8 +1,14 @@
 <div ng-include="'views/home/header.html'"></div>
 <div class="home-view container">
-  <div class="row col-xs-12">
-    <button type="button" class="btn btn-primary btn-sm">Available</button>
-    <button type="button" class="btn btn-primary btn-sm">New books</button>
+  <div class="row col-xs-12 nopadding">
+    <nav class="navbar navbar-default" ng-click="$event.preventDefault()">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li ng-class="stateA"><a href="#" ng-click="stateA='active'">Available</a></li>
+          <li ng-class="stateN"><a href="#" ng-click="stateN='active'">New Books</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
   <div ng-repeat="book in books" class="row col-xs-12 col-sm-6 text-center">
     <a href="#/books/{{book._id}}" class="row">

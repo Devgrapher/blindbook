@@ -6,8 +6,9 @@ var bookSchema = mongoose.Schema({
     tags: [{ type: String }],
     donation_date: { type: Date, default: Date.now },
     owner: { type: String, default: '' },
+    phone: { type: String, default: '' },
     borrower: { type: String, default: '' },
-    return_date: { type: Date, default: Date.now }
+    return_date: { type: Date, default: '' }
   },
   { collection : 'books' });
 
