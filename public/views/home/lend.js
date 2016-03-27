@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('myApp.lend', ['ngRoute'])
+angular.module('myApp.lend', ['ui.router'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/lend', {
+.config(['$stateProvider', function($stateProvider) {
+  $stateProvider.state('lend', {
+    url: "/lend",
     templateUrl: 'views/home/lend.html',
     controller: 'lendCtrl'
   });

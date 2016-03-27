@@ -1,17 +1,18 @@
 'use strict';
 
-angular.module('myApp.book', ['ngRoute', 'ngResource'])
+angular.module('myApp.book', ['ui.router', 'ngResource'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/books/:id', {
+.config(['$stateProvider', function($stateProvider) {
+  $stateProvider.state('books', {
+    url: '/books/:id',
     templateUrl: 'views/book.html',
     controller: 'BookCtrl'
   });
 }])
 
-.controller('BookCtrl', ['$scope', '$routeParams', 'Book',
-  function($scope, $routeParams, Book) {
-    $scope.book = Book.get({id: $routeParams.id}, function(book) {
+.controller('BookCtrl', ['$scope', '$stateParams', 'Book',
+  function($scope,$stateParams, Book) {
+    $scope.book = Book.get({id: $stateParams.id}, function(book) {
     });
 }])
 

@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('myApp.search', ['ngRoute'])
+angular.module('myApp.search', ['ui.router'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/search', {
+.config(['$stateProvider', function($stateProvider) {
+  $stateProvider.state('search', {
+    url: '/search',
     templateUrl: 'views/home/search.html',
     controller: 'SearchCtrl'
   });

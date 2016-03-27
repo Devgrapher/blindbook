@@ -11,9 +11,9 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-resource": "1.4.x",
+    "angular-bootstrap" : "1.2.5",
+    "angular-ui-router" : "0.2.18",
     "html5-boilerplate": "~5.2.0",
-    "bootstrap": "~3.3.6",
-    "bootstrap-formhelpers": "~2.3.0",
-    "jquery": "latest"
+    "bootstrap": "~3.3.6"
   }
 }
