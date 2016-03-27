@@ -14,9 +14,4 @@ angular.module('myApp.home', ['ui.router'])
   $scope.books = Book.query();
   $scope.bookUrl = "image/book_default2.jpg";
   $scope.filter = "available"
-
-  $scope.tabs = [
-    { title:'Available', content:'Dynamic content 1' },
-    { title:'New Books', content:'Dynamic content 2' }
-  ];
 }]);
