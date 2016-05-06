@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.lend',
   'myApp.book',
-  'myApp.member'
+  'myApp.member',
+  'myApp.comment'
 ])
 .config(['$stateProvider', '$urlRouterProvider',
 	function ($stateProvider, $urlRouterProvider) { 

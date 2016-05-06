@@ -10,10 +10,21 @@ angular.module('myApp.book', ['ui.router', 'ngResource'])
   });
 }])
 
-.controller('BookCtrl', ['$scope', '$stateParams', 'Book',
-  function($scope,$stateParams, Book) {
+.controller('BookCtrl', ['$scope', '$stateParams', '$state', 'Book', 'Comment',
+  function($scope, $stateParams, $state, Book, Comment) {
     $scope.book = Book.get({id: $stateParams.id}, function(book) {
+      $scope.comments = Comment.query({discussion_id: $scope.book._id});
     });
+    $scope.save = function() {
+      var comment = new Comment();
+      comment.discussion_id = $scope.book._id;
+      comment.name = $scope.comment_name;
+      comment.text = $scope.comment_text;
+
+      comment.$save(function() {
+        $state.reload();
+      });
+    }
 }])
 
 .factory('Book', ['$resource',

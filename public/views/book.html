@@ -30,9 +30,50 @@
   </div>
   <div ng-show="!book.return_date" class="row">
     <div class="col-xs-12">
-      <button type="submit" class="btn btn-primary col-xs-12 col-sm-6">
+      <button type="submit" class="btn btn-primary col-xs-12">
         데이트 하기
       </button>
     </div>
   </div>
+
+  <!-- Comment Area -->
+  <div class="row col-xs-12 nopadding"><br></div>
+  <div><string>Comments</string></div>
+  <table class="search-view table table-hover table-striped">
+    <tr ng-repeat="comment in comments" class="">
+      <td>
+        <div class="col-xs-12 col-sm-2">
+          <strong>{{comment.name}}</strong>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+          {{comment.text}}
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Input -->
+  <form class="form panel-body nopadding">
+    <div class="form-group">
+      <label for="comment-name" class="control-label col-xs-12 col-sm-2">이름</label>
+      <div class="col-xs-12 col-sm-10">
+        <input class="form-control" id="comment-name" type="text" ng-model="comment_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="comment-text" class="control-label col-xs-12 col-sm-2">덧글</label>
+      <div class="col-xs-12 col-sm-10">
+        <textarea class="form-control" id="lend-owner" type="text" ng-model="comment_text">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-default btn-block"
+            ng-click="save()">
+          등록
+        </button>
+        <p class="control-label help-block"><br></p>
+      </div>
+    </div>
+  </form>
 </div>
