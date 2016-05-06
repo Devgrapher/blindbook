@@ -25,11 +25,14 @@ angular.module('myApp.book', ['ui.router', 'ngResource'])
         $state.reload();
       });
     }
+    $scope.borrow = function() {
+      $state.go('borrow', {id:$stateParams.id}, {reload: false});
+    }
 }])
 
 .factory('Book', ['$resource',
   function($resource){
-    return $resource('/api/books/:id', null, function(){
-
+    return $resource('/api/books/:id', null, {
+      'update': { method:'PUT' },
     });
 }]);

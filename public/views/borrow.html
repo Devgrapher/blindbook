@@ -1,0 +1,35 @@
+<div ng-include="'views/home/header.html'"></div>
+<div class="borrow-view container">
+  <div class="row"><br></div>
+  <div class="row">
+    <div class="col-xs-12"><strong>책:</strong></div>
+    <div class="col-xs-12">{{book.name}}</div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>대여자:</strong>
+	  <input class="form-control" id="borrow-name" type="text" ng-model="borrower">
+    </div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>연락처:</strong>
+	  <input class="form-control" id="borrow-phone" type="text" ng-model="phone">
+    </div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>반납 예정일:</strong>
+	  <div class="input-group">
+	    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt_pick" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+	    <span class="input-group-btn">
+	      <button type="button" class="btn btn-default" ng-click="open_dt()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+	  </div>
+    </div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <button type="submit" class="btn btn-primary col-xs-12" ng-click="save()">
+    오늘부터 데이트 시작
+  </button>
+</div>
