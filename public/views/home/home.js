@@ -12,6 +12,6 @@ angular.module('myApp.home', ['ui.router'])
 
 .controller('homeCtrl', ['$scope', 'Book', function($scope, Book) {
   $scope.books = Book.query();
-  $scope.bookUrl = "image/book_default2.jpg";
+  $scope.bookUrl = "image/book.jpg";
   $scope.filter = "available"
 }]);

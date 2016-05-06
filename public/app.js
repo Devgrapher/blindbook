@@ -9,7 +9,8 @@ angular.module('myApp', [
   'myApp.mypage',
   'myApp.version',
   'myApp.lend',
-  'myApp.book'
+  'myApp.book',
+  'myApp.member'
 ])
 .config(['$stateProvider', '$urlRouterProvider',
 	function ($stateProvider, $urlRouterProvider) { 

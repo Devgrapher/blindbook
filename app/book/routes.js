@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Book = require("./model.js")
+var Member = require("../member/model.js")
 
 router.route('/books')
 
 .get(function(req, res, next) {
   // use mongoose to get all books in the database
-  Book.find(function(err, books) {
+  Book.find(req.query, function(err, books) {
     // if there is an error retrieving, send the error.
     // nothing after res.send(err) will execute
     if (err) return next(err);
@@ -22,7 +23,6 @@ router.route('/books')
     res.json(post);
   });
 });
-
 
 router.route('/books/:id')
 

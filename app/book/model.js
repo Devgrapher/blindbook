@@ -5,12 +5,14 @@ var bookSchema = mongoose.Schema({
     name: { type: String, default: '' },
     tags: [{ type: String }],
     donation_date: { type: Date, default: Date.now },
-    owner: { type: String, default: '' },
-    phone: { type: String, default: '' },
-    borrower: { type: String, default: '' },
-    return_date: { type: Date, default: '' }
+    owner: String,
+    borrower: String,
+    return_date: Date
   },
-  { collection : 'books' });
+  {
+  	collection : 'books',
+  	timestamps : true 
+  });
 
 // define our model
 // module.exports allows us to pass this to other files when it is called

@@ -37,8 +37,12 @@ app.use(function(err, req, res, next) {
 // routes ==================================================
 var index = require('./app/index.js');
 var book = require('./app/book/routes.js');
+var comment = require('./app/comment/routes.js');
+var member = require('./app/member/routes.js');
 app.use('/', index);
 app.use('/api', book);
+app.use('/api', comment);
+app.use('/api', member);
 
 // start app ===============================================
 app.listen(port);

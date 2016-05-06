@@ -1,5 +1,5 @@
 <div ng-include="'views/home/header.html'"></div>
-<div class="home-view container nopadding">
+<div class="home-view container">
   <div class="col-xs-12"><br></div>
   <div class="col-xs-12">
     <p class=""><strong>데이트 가능한 책</strong></p>
@@ -12,8 +12,8 @@
         </div>
         <div class="row panel-body">
           <div class="row col-xs-12"><br></div>
-          <img ng-src="{{bookUrl}}" class="phone col-xs-6">
-          <div class="text-left col-xs-6">
+          <img ng-src="{{bookUrl}}" class="phone col-xs-5">
+          <div class="text-left col-xs-7">
             <span ng-repeat="tag in book.tags">#{{tag}}<br></span>
           </div>
         </div>
