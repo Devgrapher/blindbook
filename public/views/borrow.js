@@ -10,7 +10,7 @@ angular.module('myApp.borrow', ['ui.router'])
   });
 }])
 
-.controller('borrowCtrl', ['$scope', '$stateParams', '$state', 'Member', 'Book', function($scope, $stateParams, $state, Member, Book) {
+.controller('borrowCtrl', ['$scope', '$stateParams', '$state', '$window', 'Member', 'Book', function($scope, $stateParams, $state, $window, Member, Book) {
   $scope.book = Book.get({id: $stateParams.id});
 
   $scope.save = function() {
@@ -19,13 +19,16 @@ angular.module('myApp.borrow', ['ui.router'])
     if(!$scope.dt_pick || $scope.dt_pick.length < 1) return;
 
     // update memeber info
-    Member.query({ phone: $scope.phone }, function (members) {
+    Member.query({ phone: $scope.phone }).$promise.then(function(members) {
       var member;
       if (members.length > 0) {
         member = members[0];
         member.name = $scope.borrower;
         member.phone = $scope.phone;
-        Member.update({id:member._id}, member);
+        Member.update({id:member._id}, member).$promise.then(function() {
+        }, function(err){
+          $window.alert(err)
+        })
         $scope.borrow_book(member);
       }
       else {
@@ -37,17 +40,22 @@ angular.module('myApp.borrow', ['ui.router'])
           $scope.borrow_book(member);
         });
       }
+    }, function(err) {
+      $window.alert("Member Query Error : " + err);
     });
   }
 
   $scope.borrow_book = function(borrower) {
-  	if ($scope.book.return_date) return; 
+    if ($scope.book.return_date) return;
 
-  	$scope.book.return_date = $scope.dt_pick;
-  	$scope.book.borrower = borrower.name;
-  	Book.update({id:$scope.book._id}, $scope.book, function(){
-	  $state.go('home', {}, {reload: true});
-  	});
+    $scope.book.return_date = $scope.dt_pick;
+    $scope.book.borrower = borrower.name;
+    Book.update({id:$scope.book._id}, $scope.book).$promise.then(function(){
+      $state.go('home', {}, {reload: true});
+    }, function(err){
+      $window.alert("Borrow Fail! : " + err)
+      $state.go('home', {}, {reload: true});
+    });
   }
 
   $scope.today = function() {
