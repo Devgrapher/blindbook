@@ -1,0 +1,29 @@
+<div ng-include="'views/home/header.html'"></div>
+<div class="return-view container">
+  <div class="row"><br></div>
+  <div class="row">
+    <div class="col-xs-12"><strong>책:</strong></div>
+    <div class="col-xs-12">{{book.name}}</div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>대여자:</strong></div>
+    <div class="col-xs-12">{{book.borrower}}</div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>데이트 종료 예정일:</strong></div>
+    <div class="col-xs-12">{{book.return_date | date:'yyyy.MM.dd'}}</div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <div class="row">
+    <div class="col-xs-12"><strong>비밀번호:</strong></div>
+    <div class="col-xs-12">
+  	  <input class="form-control" id="return-passwd" type="text" ng-model="passwd">
+    </div>
+  </div>
+  <p class="control-label help-block"><br></p>
+  <button type="submit" class="btn btn-primary col-xs-12" ng-click="save()">
+    데이트 종료
+  </button>
+</div>

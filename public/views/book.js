@@ -28,6 +28,9 @@ angular.module('myApp.book', ['ui.router', 'ngResource'])
     $scope.borrow = function() {
       $state.go('borrow', {id:$stateParams.id}, {reload: false});
     }
+    $scope.return = function() {
+      $state.go('return', {id:$stateParams.id}, {reload: false});
+    }
 }])
 
 .factory('Book', ['$resource',

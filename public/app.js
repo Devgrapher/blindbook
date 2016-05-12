@@ -12,7 +12,8 @@ angular.module('myApp', [
   'myApp.book',
   'myApp.member',
   'myApp.comment',
-  'myApp.borrow'
+  'myApp.borrow',
+  'myApp.return'
 ])
 .config(['$stateProvider', '$urlRouterProvider',
 	function ($stateProvider, $urlRouterProvider) { 
